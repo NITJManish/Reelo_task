@@ -6,6 +6,9 @@ const connectDB=require('./config/connectDB')
 const cors=require('cors');
 const userRoutes = require("./routes/user");
 const authRoutes = require("./routes/auth");
+const songRoutes = require("./routes/songs");
+const playListRoutes = require("./routes/playLists");
+const searchRoutes = require("./routes/search");
 
 
 connectDB();
@@ -18,6 +21,9 @@ app.get("/",(req,res)=>{
 
 app.use("/api/users/", userRoutes);
 app.use("/api/login/", authRoutes);
+app.use("/api/songs/", songRoutes);
+app.use("/api/playlists/", playListRoutes);
+app.use("/api/", searchRoutes);
 
  app.listen(process.env.PORT, () => {
   console.log(
